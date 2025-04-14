@@ -15,8 +15,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const setThemeMode = `
+    (function() {
+      const theme = localStorage.getItem('theme-storage');
+      const parsedTheme = theme ? JSON.parse(theme).state.theme : 'light';
+      document.documentElement.classList.remove('light', 'dark');
+      document.documentElement.classList.add(parsedTheme);
+    })();
+  `;
+
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: setThemeMode,
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
