@@ -13,7 +13,7 @@ const AssetList = () => {
         const isFav = favSet.has(asset.symbol);
 
         return (
-          <div key={asset.symbol + index}>
+          <div key={asset.symbol + index} className="flex gap-2">
             <p>{asset.symbol}</p>
             <p>{asset.name}</p>
             <button onClick={() => toggleFavorite(asset.symbol)}>

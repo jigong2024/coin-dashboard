@@ -1,5 +1,6 @@
 "use client";
 import AssetList from "@/components/asset/AssetList";
+import FavoriteList from "@/components/asset/FavoriteList";
 import ThemeToggle from "@/components/layout/ThemeToggle";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       메인입니다.
       <ThemeToggle />
       <AssetList />
+      <FavoriteList />
     </main>
   );
 }
