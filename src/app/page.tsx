@@ -1,4 +1,3 @@
-"use client";
 import AssetList from "@/components/asset/AssetList";
 import FavoriteList from "@/components/asset/FavoriteList";
 import ThemeToggle from "@/components/layout/ThemeToggle";

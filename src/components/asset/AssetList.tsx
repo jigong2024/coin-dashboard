@@ -1,3 +1,5 @@
+"use client";
+
 import { mockAssets } from "@/mocks/mockAssets";
 import { useAssetStore } from "@/store";
 
