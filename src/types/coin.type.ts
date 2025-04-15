@@ -12,6 +12,8 @@ export interface Coin {
   low_24h: number; // 24시간 최저가
   price_change_24h: number; // 24시간 가격 변동
   price_change_percentage_24h: number; // 24시간 가격 변동률 (%)
+  market_cap_change_24h: number; // 24시간 시가총액 변동
+  market_cap_change_percentage_24h: number; // 24시간 시가총액 변동률
   circulating_supply: number; // 유통 공급량
   total_supply: number | null; // 총 공급량
   max_supply: number | null; // 최대 공급량
@@ -21,5 +23,6 @@ export interface Coin {
   atl: number; // 역대 최저가
   atl_change_percentage: number; // 역대 최저가 대비 변동률
   atl_date: string; // 역대 최저가 날짜
+  roi: null | object; // ROI 정보
   last_updated: string; // 마지막 업데이트 시간
 }
