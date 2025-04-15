@@ -19,6 +19,10 @@ const CoinPage = () => {
   const allCoins = data ? data.pages.flatMap((page) => page.coins) : [];
 
   useEffect(() => {
+    console.log("모든코인 =>", allCoins);
+  }, [allCoins]);
+
+  useEffect(() => {
     if (lastCoinRef.current) {
       observerRef.current = new IntersectionObserver(
         (entries) => {

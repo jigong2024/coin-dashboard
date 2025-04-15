@@ -6,7 +6,7 @@ const BaseUrl = axios.create({
 });
 
 export const getCoinList = async ({ pageParam = 1 }) => {
-  const perPage = 50; // 한페이지당 코인 개수(CoinGecko 최대 250)
+  const perPage = 250; // 한페이지당 코인 개수(CoinGecko 최대 250)
 
   try {
     const response = await BaseUrl.get<Coin[]>("/coins/markets", {
@@ -18,7 +18,6 @@ export const getCoinList = async ({ pageParam = 1 }) => {
         sparkline: false,
       },
     });
-    console.log("데이터 =>", response.data.length);
     return {
       coins: response.data,
       nextPage: response.data.length === perPage ? pageParam + 1 : undefined,

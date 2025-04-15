@@ -8,7 +8,12 @@ export const useCoinQuery = () => {
   const query = useInfiniteQuery({
     queryKey: ["coinList"],
     queryFn: getCoinList,
-    getNextPageParam: (lastPage) => lastPage.nextPage,
+    getNextPageParam: (lastPage) => {
+      if (lastPage.nextPage && lastPage.nextPage <= 6) {
+        return lastPage.nextPage;
+      }
+      return undefined;
+    },
     staleTime: 5 * 60 * 1000,
     cacheTime: 30 * 60 * 1000,
     onSuccess: (data) => {
