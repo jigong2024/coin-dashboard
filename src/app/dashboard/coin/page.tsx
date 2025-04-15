@@ -1,16 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
-import { useCoinStore } from "@/store/useCoinStore";
+import { useCoinQuery } from "@/hooks/useCoinQuery";
 
 const CoinPage = () => {
-  const { coinList, fetchCoinList } = useCoinStore();
-
-  useEffect(() => {
-    fetchCoinList();
-  }, []);
+  const { coinList, isLoading, isError } = useCoinQuery();
 
   console.log("데이터 확인중 =>", coinList);
+
+  if (isLoading) return null;
+  if (isError) return null;
 
   return (
     <div className="p-4 w-full">
